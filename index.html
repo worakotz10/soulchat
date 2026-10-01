@@ -706,3 +706,82 @@ setTimeout(idleCheck,8000);
 </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soulchat</title>
+  <link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+  <h1>ยินดีต้อนรับสู่ Soulchat</h1>
+
+  <!-- ส่วนปุ่มเพิ่มรูปตัวละครจากคลัง iPhone -->
+  <div style="margin: 20px 0;">
+    <label for="galleryInput" style="background: #007aff; color: white; padding: 12px 20px; border-radius: 8px; font-size: 16px; cursor: pointer; display: inline-block; font-family: -apple-system, sans-serif;">
+      📁 เลือกรูปตัวละครจากคลัง
+    </label>
+    <input type="file" id="galleryInput" accept="image/*" style="display: none;" onchange="loadGalleryImage(event)">
+    
+    <!-- พื้นที่แสดงรูปตัวอย่าง -->
+    <div style="margin-top: 15px;">
+      <img id="galleryPreview" src="" alt="ตัวอย่างรูปตัวละคร" style="max-width: 100%; max-height: 300px; display: none; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    </div>
+  </div>
+
+  <script>
+  function loadGalleryImage(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const preview = document.getElementById('galleryPreview');
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+      }
+      reader.readAsDataURL(file);
+    }
+  }
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soulchat</title>
+  <link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+  <h1>ยินดีต้อนรับสู่ Soulchat</h1>
+
+  <!-- ส่วนปุ่มเพิ่มรูปตัวละครจากคลัง iPhone -->
+  <div style="margin: 20px 0;">
+    <label for="galleryInput" style="background: #007aff; color: white; padding: 12px 20px; border-radius: 8px; font-size: 16px; cursor: pointer; display: inline-block; font-family: -apple-system, sans-serif;">
+      📁 เลือกรูปตัวละครจากคลัง
+    </label>
+    <input type="file" id="galleryInput" accept="image/*" style="display: none;" onchange="loadGalleryImage(event)">
+    
+    <!-- พื้นที่แสดงรูปตัวอย่าง -->
+    <div style="margin-top: 15px;">
+      <img id="galleryPreview" src="" alt="ตัวอย่างรูปตัวละคร" style="max-width: 100%; max-height: 300px; display: none; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    </div>
+  </div>
+
+  <script>
+  function loadGalleryImage(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const preview = document.getElementById('galleryPreview');
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+      }
+      reader.readAsDataURL(file);
+    }
+  }
+  </script>
+</body>
+</html>
