@@ -783,5 +783,30 @@ setTimeout(idleCheck,8000);
     }
   }
   </script>
-</body>
+</body><!-- ส่วนปุ่มเพิ่มรูปตัวละครจากคลัง iPhone -->
+<div style="text-align: center; margin: 20px;">
+  <label for="charImageInput" style="background: #007aff; color: white; padding: 12px 20px; border-radius: 8px; font-size: 16px; cursor: pointer; display: inline-block; font-family: -apple-system, sans-serif;">
+    📁 เลือกรูปตัวละครจากคลัง
+  </label>
+  <input type="file" id="charImageInput" accept="image/*" style="display: none;" onchange="loadCharImage(event)">
+  
+  <div style="margin-top: 15px;">
+    <img id="charImagePreview" src="" alt="ตัวอย่างรูป" style="max-width: 100%; max-height: 300px; display: none; border-radius: 12px;">
+  </div>
+</div>
+
+<script>
+function loadCharImage(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const preview = document.getElementById('charImagePreview');
+      preview.src = e.target.result;
+      preview.style.display = 'block';
+    }
+    reader.readAsDataURL(file);
+  }
+}
+</script>
 </html>
