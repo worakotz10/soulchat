@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><body style="background:#111;color:#fff;font-family:system-ui;padding:30px">
+<h3>สร้างไอคอน SoulChat</h3><p>กดลิงก์ใต้ภาพเพื่อดาวน์โหลด</p><div id="out"></div>
+<script>
+const sizes=[{n:'icon-180',s:180},{n:'icon-192',s:192},{n:'icon-512',s:512},
+             {n:'icon-192-maskable',s:192,pad:.2},{n:'icon-512-maskable',s:512,pad:.2}];
+sizes.forEach(({n,s,pad=0})=>{
+  const c=document.createElement('canvas');c.width=c.height=s;const x=c.getContext('2d');
+  const g=x.createLinearGradient(0,0,s,s);g.addColorStop(0,'#0b0b12');g.addColorStop(1,'#1c1c3a');
+  x.fillStyle=g;x.fillRect(0,0,s,s);
+  const r=s*(0.3-pad*0.5),cx=s/2,cy=s/2;
+  const g2=x.createLinearGradient(cx-r,cy-r,cx+r,cy+r);g2.addColorStop(0,'#8b7cf6');g2.addColorStop(1,'#5eead4');
+  x.strokeStyle=g2;x.lineWidth=s*0.075;x.lineCap='round';
+  x.beginPath();x.arc(cx,cy,r,Math.PI*0.25,Math.PI*1.85);x.stroke();
+  x.beginPath();x.moveTo(cx-r*0.55,cy+r*0.72);x.lineTo(cx-r*0.1,cy+r*1.25);x.lineTo(cx+r*0.12,cy+r*0.62);x.stroke();
+  x.fillStyle='#fff';[-1,0,1].forEach(i=>{x.beginPath();x.arc(cx+i*r*0.42,cy,s*0.045,0,7);x.fill()});
+  c.style.cssText='width:90px;border-radius:14px';
+  const a=document.createElement('a');a.href=c.toDataURL('image/png');a.download=n+'.png';
+  a.textContent='⬇ '+n+'.png';a.style.cssText='display:block;color:#8b7cf6;margin:6px 0 18px';
+  out.appendChild(c);out.appendChild(a);
+});
+</script></body></html>
